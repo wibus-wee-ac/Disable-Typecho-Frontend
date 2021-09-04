@@ -1,10 +1,10 @@
 <?
 /*
- * @FilePath: /Plugins/SiteClose/template/blackMid.php
+ * @FilePath: /Disable-Typecho-Frontend/template/default.php
  * @author: Wibus
  * @Date: 2021-07-15 13:57:53
  * @LastEditors: Wibus
- * @LastEditTime: 2021-07-15 13:58:39
+ * @LastEditTime: 2021-09-04 16:54:23
  * Coding With IU
  */
 ?>
@@ -57,7 +57,6 @@
         }
         </style>
     </footer>
-    <?php $this->footer();?>
 </body>
 
 </html>

@@ -1,12 +1,11 @@
 <?php
 /**
- * 禁止讨厌鬼访问网站，眼不见心不烦~
+ * 一个简单的全站维护插件
  *
  * @package DisableFrontend
- * @author Kokororin
+ * @author Wibus
  * @version 1.0
- * @update: 2015.9.10
- * @link https://kotori.love
+ * @link https://blog.iucky.cn
  */
 class DisableFrontend_Plugin implements Typecho_Plugin_Interface
 {
@@ -21,17 +20,20 @@ class DisableFrontend_Plugin implements Typecho_Plugin_Interface
 
     public static function config(Typecho_Widget_Helper_Form $form)
     {
-echo '<link rel="stylesheet" href="<?php Helper::options()->pluginUrl(); ?>/LoginDesigner/style.css?202108">';
-$url=Helper::options()->pluginUrl.'/LoginDesigner/';
+echo '<link rel="stylesheet" href="'.Helper::options()->pluginUrl.'/DisableFrontend/style.css">';
+echo <<<EOF
+
+EOF;
+$url=Helper::options()->pluginUrl.'/DisableFrontend/';
 $zz1='<div class="zz">Default</div>';
 $zz2='<div class="zz">Nginx</div>';
 $zz3='<div class="zz">midBig</div>'; 
       
  $bgfengge = new Typecho_Widget_Helper_Form_Element_Radio(
 'bgfengge', array(
-  'Default' => _t('<div class="kuai"><img src="'.$url.'/images/suya.jpg" loading="lazy">'.$zz1.'</div>'),
-  'Nginx' => _t('<div class="kuai"><img src="'.$url.'/images/BlueSkyAndMountains.jpg" loading="lazy">'.$zz2.'</div>'),
-  'midBig' => _t('<div class="kuai"><img src="'.$url.'/images/Earlyspringimpression.jpg" loading="lazy">'.$zz3.'</div>'),
+  'default' => _t('<div class="kuai"><img src="'.$url.'/images/default.png" loading="lazy">'.$zz1.'</div>'),
+  'nginx' => _t('<div class="kuai"><img src="'.$url.'/images/nginx.png" loading="lazy">'.$zz2.'</div>'),
+  'midBig' => _t('<div class="kuai"><img src="'.$url.'/images/midbig.png" loading="lazy">'.$zz3.'</div>'),
     ), 'suya', _t('维护页面样式'), _t('')); 
     $bgfengge->setAttribute('id', 'yangshi');
     $form->addInput($bgfengge); 
@@ -43,9 +45,9 @@ $zz3='<div class="zz">midBig</div>';
     public static function DisableFrontend()
     {
         $options = Typecho_Widget::widget('Widget_Options')->plugin('DisableFrontend');
-        $choose = $options->choose;
-        include './template/'.$choose;
-        exit;    
+        $choose = $options->bgfengge;
+        $exit = file_get_contents('.'.__TYPECHO_PLUGIN_DIR__.'/DisableFrontend/template/'.$choose.'.php');
+        exit($exit);
     }
 
 }
