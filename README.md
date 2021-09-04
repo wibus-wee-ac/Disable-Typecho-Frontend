@@ -2,6 +2,13 @@
 
 这是一个全面禁用typecho前端的案例，同样也是一款全站维护插件
 
+## 使用方法
+
+1. 下载最新的代码压缩包：https://github.com/wibus-wee/Disable-Typecho-Frontend/archive/refs/heads/main.zip
+2. 上传服务器至插件目录解压
+3. 改目录名字为`DisableFrontend`
+4. Typecho后台启动插件开始使用
+
 ## 为什么要写这个案例
 
 说到这个，我很反感就这么一丢丢的小东西，收费干嘛？
@@ -28,5 +35,6 @@
 
 - BlockIP —— 感谢！这是此项目的核心，通过此项目再翻找typecho源码，知道了beforeRender
 - LoginDesigner —— config选项样式来源
+- MDUI —— 头部样式来源
 - Maintain —— 让我知道原来这也要收费
 - Typecho —— 插件运行核心
