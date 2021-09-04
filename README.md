@@ -1,8 +1,6 @@
 # Disable-Typecho-Frontend
 
-这是一个全面禁用typecho前端的案例，可以二开成为全站维护插件
-
-我也会自己另外再写一个插件出来，同样全部开源！
+这是一个全面禁用typecho前端的案例，同样也是一款全站维护插件
 
 ## 为什么要写这个案例
 
@@ -13,3 +11,22 @@
 ## 友情提示
 
 建议你不要来找我杠道理，我懒得理你谢谢
+
+本插件案例灵感来自BlockIP插件！感谢！
+
+## 原理解释
+
+在Typecho中，还是万能的Widget中有一个：`Typecho_Plugin::factory('Widget_Archive')->beforeRender`，可以在渲染前输出东西，之后上个函数，一个threw就打断继续了，一个exit就直接退出了
+
+但是原作者是这样的：
+
+> 主要卡在Action无输出上面了，最后面通过Debug发现有必须实现的方法没实现，好久没写Route相关的插件了
+
+据我所知，路由在插件中一般是用来自定义页面的吧？我到现在其实还不懂他在说啥route😂
+
+## 感谢项目
+
+- BlockIP —— 感谢！这是此项目的核心，通过此项目再翻找typecho源码，知道了beforeRender
+- LoginDesigner —— config选项样式来源
+- Maintain —— 让我知道原来这也要收费
+- Typecho —— 插件运行核心

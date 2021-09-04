@@ -2,107 +2,50 @@
 /**
  * 禁止讨厌鬼访问网站，眼不见心不烦~
  *
- * @package BlockIP
+ * @package DisableFrontend
  * @author Kokororin
  * @version 1.0
  * @update: 2015.9.10
  * @link https://kotori.love
  */
-class BlockIP_Plugin implements Typecho_Plugin_Interface
+class DisableFrontend_Plugin implements Typecho_Plugin_Interface
 {
     public static function activate()
     {
-        Typecho_Plugin::factory('Widget_Archive')->beforeRender = array('BlockIP_Plugin', 'BlockIP');
-        return "启用BlockIP成功qwq";
+        Typecho_Plugin::factory('Widget_Archive')->beforeRender = array('DisableFrontend_Plugin', 'DisableFrontend');
     }
 
     public static function deactivate()
     {
-        return "禁用BlockIP成功qwq";
     }
 
     public static function config(Typecho_Widget_Helper_Form $form)
     {
-        $ips = new Typecho_Widget_Helper_Form_Element_Textarea('ips', null, null, _t('IP黑名单列表'), _t('一行一个，支持规则qwq<br>以下是例子qwq<br>192.168.1.1<br>210.10.2.1-20<br>222.34.4.*<br>218.192.104.*'));
-        $form->addInput($ips);
-
+echo '<link rel="stylesheet" href="<?php Helper::options()->pluginUrl(); ?>/LoginDesigner/style.css?202108">';
+$url=Helper::options()->pluginUrl.'/LoginDesigner/';
+$zz1='<div class="zz">Default</div>';
+$zz2='<div class="zz">Nginx</div>';
+$zz3='<div class="zz">midBig</div>'; 
+      
+ $bgfengge = new Typecho_Widget_Helper_Form_Element_Radio(
+'bgfengge', array(
+  'Default' => _t('<div class="kuai"><img src="'.$url.'/images/suya.jpg" loading="lazy">'.$zz1.'</div>'),
+  'Nginx' => _t('<div class="kuai"><img src="'.$url.'/images/BlueSkyAndMountains.jpg" loading="lazy">'.$zz2.'</div>'),
+  'midBig' => _t('<div class="kuai"><img src="'.$url.'/images/Earlyspringimpression.jpg" loading="lazy">'.$zz3.'</div>'),
+    ), 'suya', _t('维护页面样式'), _t('')); 
+    $bgfengge->setAttribute('id', 'yangshi');
+    $form->addInput($bgfengge); 
     }
 
     public static function personalConfig(Typecho_Widget_Helper_Form $form)
     {}
 
-    public static function blockIP()
+    public static function DisableFrontend()
     {
-        //debug
-        //print_r(BlockIP_Plugin::getAllBlockIP());
-
-        if (BlockIP_Plugin::checkIP()) {
-            $user = Typecho_Widget::widget('Widget_User');
-            // throw new Typecho_Widget_Exception('抱歉，您的IP段无法访问，如果您被误封，请<a href="mailto:' . $user->mail . '">联系我</a>。');
-            throw new Typecho_Widget_Exception('博客资源正在重新构建中...请稍等片刻');
-        }
-
-    }
-
-    private static function checkIP()
-    {
-        $flag = false;
-        $request = new Typecho_Request;
-        $ip = trim($request->getIp());
-        $iptable = BlockIP_Plugin::getAllBlockIP();
-        if ($iptable) {
-            foreach ($iptable as $value) {
-                if (preg_match("{$value}", $ip)) {
-                    $flag = true;
-                    break;
-                }
-            }
-        }
-        return $flag;
-
-    }
-
-    private static function makePregIP($str)
-    {
-        if (strpos($str, "-") !== false) {
-            $aIP = explode(".", $str);
-            foreach ($aIP as $key => $value) {
-                if (strpos($value, "-") === false) {
-                    if ($key == 0) {
-                        $preg_limit .= BlockIP_Plugin::makePregIP($value);
-                    } else {
-                        $preg_limit .= '.' . BlockIP_Plugin::makePregIP($value);
-                    }
-
-                } else {
-                    $aipNum = explode("-", $value);
-                    for ($i = $aipNum[0]; $i <= $aipNum[1]; $i++) {
-                        $preg .= $preg ? "|" . $i : "[" . $i;
-                    }
-                    $preg_limit .= strrpos($preg_limit, ".", 1) == (strlen($preg_limit) - 1) ? $preg . "]" : "." . $preg . "]";
-                }
-            }
-        } else {
-            $preg_limit .= $str;
-        }
-        return $preg_limit;
-    }
-
-    private static function getAllBlockIP()
-    {
-        $config = Typecho_Widget::widget('Widget_Options')->plugin('BlockIP');
-        $ips = $config->ips;
-        if ($ips) {
-            $ip_array = explode("\n", $ips);
-            foreach ($ip_array as $value) {
-                $ipaddress = BlockIP_Plugin::makePregIP($value);
-                $ip = str_ireplace(".", "\.", $ipaddress);
-                $ip = str_replace("*", "[0-9]{1,3}", $ip);
-                $ipaddress = "/" . trim($ip) . "/";
-                $ip_list[] = $ipaddress;
-            }
-        }
-        return $ip_list;
+        $options = Typecho_Widget::widget('Widget_Options')->plugin('DisableFrontend');
+        $choose = $options->choose;
+        include './template/'.$choose;
+        exit;    
     }
 
 }
