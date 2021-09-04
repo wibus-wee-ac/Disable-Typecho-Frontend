@@ -74,7 +74,7 @@ $zz3='<div class="zz">midBig</div>';
   'default' => _t('<div class="kuai"><img src="'.$url.'/images/default.png" loading="lazy">'.$zz1.'</div>'),
   'nginx' => _t('<div class="kuai"><img src="'.$url.'/images/nginx.png" loading="lazy">'.$zz2.'</div>'),
   'midBig' => _t('<div class="kuai"><img src="'.$url.'/images/midbig.png" loading="lazy">'.$zz3.'</div></div>'),
-    ), 'suya', _t('维护页面样式'), _t('')); 
+    ), 'default', _t('维护页面样式'), _t('')); 
     $bgfengge->setAttribute('id', 'yangshi');
     $form->addInput($bgfengge); 
     }
