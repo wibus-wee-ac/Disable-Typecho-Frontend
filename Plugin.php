@@ -28,7 +28,7 @@ class DisableFrontend_Plugin implements Typecho_Plugin_Interface
             ,'yes', _t('是否启动维护页面'), _t('不需要维护页面时可以在此处关闭')
         );
         $form->addInput($open); 
-echo '<link rel="stylesheet" href="'.Helper::options()->pluginUrl.'/DisableFrontend/style.css?1630748592">';
+echo '<link rel="stylesheet" href="'.Helper::options()->pluginUrl.'/DisableFrontend/style.css?1630749607">';
 echo <<<EOF
 <style>
 form{padding: 50px;}
