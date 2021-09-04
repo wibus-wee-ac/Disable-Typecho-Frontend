@@ -1,6 +1,6 @@
 .typecho-option label.typecho-label {
     color: #000;
-    font-size: 24px;
+    /* font-size: 24px; */
 } 
 .typecho-option .description {
     color: #5091e5;
@@ -12,8 +12,11 @@
     background-color: #000;
 }
 #yangshi img {
-    cursor: pointer;vertical-align: top;
-    width: 200px;    height: 125px;border-bottom: 1px solid #f3f3f0;
+    cursor: pointer;
+    vertical-align: top;
+    /* width: 200px; */
+    height: 80px;
+    border-bottom: 1px solid #f3f3f0;
 }
 .kuai {
     border-radius: 5px;
@@ -47,7 +50,7 @@ color:
     #fff;
     text-align: center;
     font-size: 16px;
-    z-index: 10;
+    z-index: 3;
     transition: 0.3s linear;
     -o-transition: 0.3s linear;
     -ms-transition: 0.3s linear;
@@ -63,12 +66,12 @@ position: relative;
 display: block;
   }
 #yangshi span {
-    margin-right: 0px;max-width: 100%;
-    display: inline-block;    margin-bottom: 10px;
+    margin-right: 0px;
+    max-width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+    text-align: center;
 }
-#yangshi li{
-  text-align: center;
-  }
 .tags:before {
     position: absolute;
     top: 5px;
@@ -89,4 +92,182 @@ display: block;
 .dalao{
     background: #FFF;
     padding: 10px;
+}
+.mdui-card {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    color: #000;
+    background-color: #fff;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+    box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+}
+.mdui-card-header {
+    position: relative;
+    height: 72px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 16px;
+}
+.mdui-card-header-title {
+    display: block;
+    margin-left: 52px;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: .87;
+}
+.mdui-card-header-subtitle {
+    display: block;
+    margin-left: 52px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: .54;
+}
+.mdui-card-primary {
+    position: relative;
+    padding: 24px 16px 16px 16px;
+}
+.mdui-p-t-1 {
+    padding-top: 8px!important;
+}
+.mdui-card-primary-title {
+    display: block;
+    font-size: 24px;
+    line-height: 36px;
+    opacity: .87;
+}
+.mdui-card-primary-subtitle {
+    display: block;
+    font-size: 14px;
+    line-height: 24px;
+    opacity: .54;
+}
+.mdui-row, [class*=mdui-row-] {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+.mdui-chip {
+    display: inline-block;
+    height: 32px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 2px 0;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #e0e0e0;
+    border-radius: 16px;
+    -webkit-transition: -webkit-box-shadow .25s cubic-bezier(.4,0,.2,1);
+    transition: -webkit-box-shadow .25s cubic-bezier(.4,0,.2,1);
+    transition: box-shadow .25s cubic-bezier(.4,0,.2,1);
+    transition: box-shadow .25s cubic-bezier(.4,0,.2,1),-webkit-box-shadow .25s cubic-bezier(.4,0,.2,1);
+    will-change: box-shadow;
+}
+.mdui-chip-icon {
+    position: relative;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: -4px;
+    overflow: hidden;
+    font-size: 18px;
+    line-height: 32px;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #989898;
+    border-radius: 50%;
+}
+.mdui-color-red {
+    color: #fff!important;
+    background-color: #f44336!important;
+}.mdui-chip-title {
+    display: inline-block;
+    height: 32px;
+    padding-right: 12px;
+    padding-left: 12px;
+    font-size: 14px;
+    line-height: 32px;
+    vertical-align: middle;
+}
+.mdui-card-actions {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 8px;
+}
+.mdui-card-actions:after, .mdui-card-actions:before {
+    display: table;
+    content: " ";
+}
+.mdui-card-actions .mdui-btn {
+    max-width: 100%;
+    margin: 0 8px 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mdui-btn, .mdui-fab {
+    position: relative;
+    display: inline-block;
+    min-width: 88px;
+    height: 36px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 16px;
+    margin: 0;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 36px;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    zoom: 1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: 0 0;
+    border: none;
+    border-radius: 2px;
+    outline: 0;
+    -webkit-transition: all .2s cubic-bezier(.4,0,.2,1),-webkit-box-shadow .2s cubic-bezier(.4,0,1,1);
+    transition: all .2s cubic-bezier(.4,0,.2,1),-webkit-box-shadow .2s cubic-bezier(.4,0,1,1);
+    transition: all .2s cubic-bezier(.4,0,.2,1),box-shadow .2s cubic-bezier(.4,0,1,1);
+    transition: all .2s cubic-bezier(.4,0,.2,1),box-shadow .2s cubic-bezier(.4,0,1,1),-webkit-box-shadow .2s cubic-bezier(.4,0,1,1);
+    will-change: box-shadow;
+    -webkit-user-drag: none;
+}
+.mdui-ripple {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.mdui-btn:hover, .mdui-fab:hover {
+    background-color: rgba(0,0,0,.1);
 }
